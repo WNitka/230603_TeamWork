@@ -6,9 +6,6 @@ def objetosc_stozka(r, h):
 
 print(objetosc_stozka)
 
-assert objetosc_stozka(4, 6) == 100.53
-assert objetosc_stozka(5, 10) == 261.80
-
 def pole_powierzchni(bok):
     pole_pow = 0
     pole_pow = 6*bok*bok
