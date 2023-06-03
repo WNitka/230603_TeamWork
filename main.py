@@ -35,3 +35,11 @@ assert objetosc_szescian(0) == 0
 assert pole_powierzchni(3) == 54
 assert pole_powierzchni(5) == 150
 assert pole_powierzchni(0) == 0
+
+def ostroslup (a,b,h): 
+    objetosc=(1/3)*a*b*h
+    objetosc_za=round(objetosc,2)
+    return objetosc_za
+
+assert ostroslup (10,10,10) == 333.33
+assert ostroslup (8,4,12) == 128
