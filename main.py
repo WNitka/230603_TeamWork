@@ -14,9 +14,6 @@ bok = 5
 pole_pow_za = pole_powierzchni(bok)
 objetosc_za = objetosc_szescian(bok)
 
-print(pole_pow)
-print(objetosc)
-
 print(pole_pow_za)
 print(objetosc_za)
 
