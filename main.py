@@ -1,19 +1,24 @@
 def pole_powierzchni(bok):
     pole_pow = 0
     pole_pow = 6*bok*bok
-    return pole_pow
+    pole_pow_za = round(pole_pow,2)
+    return pole_pow_za
 
 def objetosc_szescian(bok):
     objetosc = 0
     objetosc = bok*bok*bok
-    return objetosc
+    objetosc_za = round(objetosc, 2)
+    return objetosc_za
 
 bok = 5
-pole_pow = pole_powierzchni(bok)
-objetosc = objetosc_szescian(bok)
+pole_pow_za = pole_powierzchni(bok)
+objetosc_za = objetosc_szescian(bok)
 
 print(pole_pow)
 print(objetosc)
+
+print(pole_pow_za)
+print(objetosc_za)
 
 assert objetosc_szescian(3) == 27
 assert objetosc_szescian(5) == 125
