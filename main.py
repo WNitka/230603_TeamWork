@@ -1,22 +1,13 @@
 import math
 
-def objetoscKuli(promien):
-    objetosc = (4/3)* math.pi * promien**3
+def objetosc_stozka(r, h):
+    objetosc = (1/3) * math.pi * r**2 * h
     return round(objetosc, 2)
 
-promienKuli = 4
-objetosc = objetoscKuli(promienKuli)
+print(objetosc_stozka)
 
-print(objetosc)
-
-assert objetoscKuli(promienKuli) == 268.08
-
-promienKuli_2 = 12
-objetosc_2 = objetoscKuli(promienKuli_2)
-
-print(objetosc_2)
-
-assert objetoscKuli(promienKuli_2) == 7238.23
+assert objetosc_stozka(4, 6) == 100.53
+assert objetosc_stozka(5, 10) == 261.80
 
 def pole_powierzchni(bok):
     pole_pow = 0
