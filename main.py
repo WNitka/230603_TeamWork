@@ -14,3 +14,11 @@ objetosc = objetosc_szescian(bok)
 
 print(pole_pow)
 print(objetosc)
+
+assert objetosc_szescian(3) == 27
+assert objetosc_szescian(5) == 125
+assert objetosc_szescian(0) == 0
+
+assert pole_powierzchni(3) == 54
+assert pole_powierzchni(5) == 150
+assert pole_powierzchni(0) == 0
