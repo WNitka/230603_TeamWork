@@ -10,7 +10,7 @@ def objetosc_szescian(bok):
     objetosc_za = round(objetosc, 2)
     return objetosc_za
 
-bok = 5
+bok = 3.4
 pole_pow_za = pole_powierzchni(bok)
 objetosc_za = objetosc_szescian(bok)
 
