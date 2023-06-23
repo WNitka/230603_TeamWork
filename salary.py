@@ -71,7 +71,7 @@ class Pracownik:
 
             for row in czytnik:
                 imie, nazwisko, wynagrodzenie_brutto = row
-                pracownik = Pracownik(imie, nazwisko, wynagrodzenie_brutto)
+                pracownik = pracownik(imie, nazwisko, wynagrodzenie_brutto)
                 koszt_pracownika = pracownik.oblicz_koszty()
                 koszt_calkowity += koszt_pracownika
 
