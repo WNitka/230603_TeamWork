@@ -14,3 +14,27 @@ class Pracownik:
         Wynagrodzenie_brutto: {self.wynagrodzenie_brutto}
         """
         return pracownik_info.strip()
+
+    def oblicz_wynagrodzenie_netto(self):
+        skladki = self.oblicz_skladki()
+        wynagrodzenie_netto = self.wynagrodzenie_brutto - skladki
+        return wynagrodzenie_netto
+
+    def oblicz_skladki(self):
+        skladki_zus_emerytalne = self.wynagrodzenie_brutto * 0.0976
+        skladki_zus_rentowe = self.wynagrodzenie_brutto * 0.015
+        skladki_zus_chorobowe = self.wynagrodzenie_brutto * 0.0245
+        skladki_ubezpieczenie_zdrowotne = self.wynagrodzenie_brutto * 0.09
+        skladki_fundusz_pracy = self.wynagrodzenie_brutto * 0.0245
+        skladki_fgsp = self.wynagrodzenie_brutto * 0.001
+        skladki_fep = self.wynagrodzenie_brutto * 0.015
+        skladki = (
+            skladki_zus_emerytalne +
+            skladki_zus_rentowe +
+            skladki_zus_chorobowe +
+            skladki_ubezpieczenie_zdrowotne +
+            skladki_fundusz_pracy +
+            skladki_fgsp +
+            skladki_fep
+        )
+        return skladki
