@@ -62,46 +62,45 @@ class Pracownik:
         koszty = self.oblicz_koszty()
         return self.wynagrodzenie_brutto + koszty
    
-    def oblicz_koszt_calkowity(nazwa_pliku):
-        koszt_calkowity = 0
+def oblicz_koszt_calkowity(nazwa_pliku):
+    koszt_calkowity = 0
 
-        with open(nazwa_pliku, 'r', newline='') as plik_csv:
-            czytnik = csv.reader(plik_csv)
-            next(czytnik)
-
-            for row in czytnik:
-                imie, nazwisko, wynagrodzenie_brutto = row
-                pracownik = pracownik(imie, nazwisko, wynagrodzenie_brutto)
-                koszt_pracownika = pracownik.oblicz_koszty()
-                koszt_calkowity += koszt_pracownika
-
-        return koszt_calkowity
-
-    nazwa_pliku = 'pracownicy.csv'
-    koszt_calkowity = oblicz_koszt_calkowity(nazwa_pliku)
-    print("Całkowity koszt pracodawcy:", koszt_calkowity)
-
-    print("Informacje o pracownikach:")
     with open(nazwa_pliku, 'r', newline='') as plik_csv:
         czytnik = csv.reader(plik_csv)
         next(czytnik)
 
         for row in czytnik:
             imie, nazwisko, wynagrodzenie_brutto = row
-            pracownik = pracownik(imie, nazwisko, wynagrodzenie_brutto)
+            pracownik = Pracownik(imie, nazwisko, wynagrodzenie_brutto)
             koszt_pracownika = pracownik.oblicz_koszty()
-            koszt_pracodawcy = pracownik.oblicz_koszt_pracodawcy()
-            wynagrodzenie_netto = pracownik.oblicz_wynagrodzenie_netto()
+            koszt_calkowity += koszt_pracownika
 
-            print("Pracownik:")
-            print("- Imię:", imie)
-            print("- Nazwisko:", nazwisko)
-            print("- Wynagrodzenie brutto:", wynagrodzenie_brutto)
-            print("- Koszt pracownika:", koszt_pracownika)
-            print("- Koszt pracodawcy:", koszt_pracodawcy)
-            print("- Wynagrodzenie netto:", wynagrodzenie_netto)
-            print()
+    return koszt_calkowity
 
-    suma_kosztow = oblicz_koszt_calkowity(nazwa_pliku)
-    print("Suma kosztów wynosi:", suma_kosztow)
-    
+nazwa_pliku = 'pracownicy.csv'
+koszt_calkowity = oblicz_koszt_calkowity(nazwa_pliku)
+print("Całkowity koszt pracodawcy:", koszt_calkowity)
+
+print("Informacje o pracownikach:")
+with open(nazwa_pliku, 'r', newline='') as plik_csv:
+    czytnik = csv.reader(plik_csv)
+    next(czytnik)
+
+    for row in czytnik:
+        imie, nazwisko, wynagrodzenie_brutto = row
+        pracownik = Pracownik(imie, nazwisko, wynagrodzenie_brutto)
+        koszt_pracownika = pracownik.oblicz_koszty()
+        koszt_pracodawcy = pracownik.oblicz_koszt_pracodawcy()
+        wynagrodzenie_netto = pracownik.oblicz_wynagrodzenie_netto()
+
+        print("Pracownik:")
+        print("- Imię:", imie)
+        print("- Nazwisko:", nazwisko)
+        print("- Wynagrodzenie brutto:", wynagrodzenie_brutto)
+        print("- Koszt pracownika:", koszt_pracownika)
+        print("- Koszt pracodawcy:", koszt_pracodawcy)
+        print("- Wynagrodzenie netto:", wynagrodzenie_netto)
+        print()
+
+suma_kosztow = oblicz_koszt_calkowity(nazwa_pliku)
+print("Suma kosztów wynosi:", suma_kosztow)
